@@ -13,6 +13,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
@@ -38,7 +39,11 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
 
+    //adding a recyclerview
+    compile "com.android.support:recyclerview-v7:$support_version"
     //adding a cardview
     compile "com.android.support:cardview-v7:$support_version"
     kapt "com.android.databinding:compiler:$android_plugin_version"
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
 }
