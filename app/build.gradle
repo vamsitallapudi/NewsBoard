@@ -46,4 +46,11 @@ dependencies {
     kapt "com.android.databinding:compiler:$android_plugin_version"
     compile 'com.squareup.picasso:picasso:2.5.2'
 
+    // Testing-only dependencies
+    androidTestCompile 'com.android.support.test:runner:' + rootProject.runnerVersion;
+    androidTestCompile 'com.android.support.test:rules:' + rootProject.rulesVersion;
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:' + rootProject.espressoVersion;
+    androidTestCompile 'com.android.support.test.espresso:espresso-contrib:' + rootProject.espressoVersion;
+
+
 }

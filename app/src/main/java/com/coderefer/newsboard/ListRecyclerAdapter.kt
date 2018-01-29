@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import com.coderefer.newsboard.databinding.NewsItemBinding
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.news_item.view.*
 
@@ -20,6 +21,17 @@ class ListRecyclerAdapter(private val news: ArrayList<News>): RecyclerView.Adapt
     override fun onBindViewHolder(holder: ListRecyclerAdapter.NewsHolder, position: Int) {
         val itemNews = news[position]
         holder.bindNews(itemNews)
+//        testing recycler adapter
+        if (position == news.size / 2 /* calculate middle element position */) {
+            holder.setIsInTheMiddle(true)
+        } else {
+            holder.setIsInTheMiddle(false)
+        }
+        if (position == news.size -1 /* calculate middle element position */) {
+            holder.setIsAtEnd(true)
+        } else {
+            holder.setIsAtEnd(false)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListRecyclerAdapter.NewsHolder{
@@ -32,6 +44,11 @@ class ListRecyclerAdapter(private val news: ArrayList<News>): RecyclerView.Adapt
 
         private var view : View = v
         private var news : News? = null
+        private var mBinding:NewsItemBinding? = null
+
+        // We'll use this field to showcase matching the holder from the test.
+        private var mIsInTheMiddle = false
+        private var mIsAtEnd = false
 
         init {
             v.setOnClickListener {this}
@@ -56,6 +73,21 @@ class ListRecyclerAdapter(private val news: ArrayList<News>): RecyclerView.Adapt
         companion object {
             //5
             private val PHOTO_KEY = "PHOTO"
+        }
+
+        fun getIsInTheMiddle(): Boolean {
+            return mIsInTheMiddle
+        }
+
+        fun setIsInTheMiddle(isInTheMiddle: Boolean) {
+            mIsInTheMiddle = isInTheMiddle
+        }
+        fun getIsAtEnd(): Boolean {
+            return mIsAtEnd
+        }
+
+        fun setIsAtEnd(isAtEnd: Boolean) {
+            mIsInTheMiddle = isAtEnd
         }
     }
 }
