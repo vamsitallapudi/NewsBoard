@@ -34,7 +34,7 @@ class ListRecyclerAdapter(private val news: ArrayList<News>): RecyclerView.Adapt
         private var news : News? = null
 
         init {
-            v.setOnClickListener {this}
+            v.setOnClickListener(this)
         }
 
         override fun onClick(v: View?) {
