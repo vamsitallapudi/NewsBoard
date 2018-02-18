@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     var mBinding: ActivityMainBinding? = null
     private val TAG : String = "MainActivity"
     private lateinit var linearLayoutManager:LinearLayoutManager
-    private lateinit var adapter: ListRecyclerAdapter
+    private lateinit var mAdapter: ListRecyclerAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = DataBindingUtil.setContentView(this,R.layout.activity_main)
@@ -28,15 +28,9 @@ class MainActivity : AppCompatActivity() {
 //        recyclerView.layoutManager = linearLayoutManager
 
 //        using android's data binding library here
-        mBinding?.recyclerView?.layoutManager = linearLayoutManager
-        adapter = ListRecyclerAdapter(newsList)
-        recyclerView.adapter = adapter
-
-    }
-
-    override fun onStart() {
-        super.onStart()
-
+        mBinding!!.recyclerView.layoutManager = linearLayoutManager
+        mAdapter = ListRecyclerAdapter(newsList)
+        recyclerView.adapter = mAdapter
     }
 
     private fun parseJsonStringToNewsList(jsonString: String): ArrayList<News> {
@@ -60,15 +54,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun readJsonFromKotlinFile() :String{
+        var inputString = ""
         try {
             val inputStream:InputStream = assets.open("news_data_file.json")
-            val inputString = inputStream.bufferedReader().use{it.readText()}
+            inputString = inputStream.bufferedReader().use{it.readText()}
             Log.d(TAG,inputString)
-            return inputString
         } catch (e:Exception){
             Log.d(TAG, e.toString())
-            return ""
         }
+        return inputString
     }
 
 }

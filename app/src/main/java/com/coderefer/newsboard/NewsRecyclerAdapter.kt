@@ -52,10 +52,5 @@ class ListRecyclerAdapter(private val news: ArrayList<News>): RecyclerView.Adapt
             view.tv_heading.text = news.news_title
             view.tv_source.text = news.news_source
         }
-
-        companion object {
-            //5
-            private val PHOTO_KEY = "PHOTO"
-        }
     }
 }
