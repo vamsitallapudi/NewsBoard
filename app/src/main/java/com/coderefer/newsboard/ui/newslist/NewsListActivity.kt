@@ -37,10 +37,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun parseJsonStringToNewsList(jsonString: String): ArrayList<News> {
-        val newsList :ArrayList<News> = ArrayList<News>(0)
+        val newsList :ArrayList<News> = ArrayList(0)
         val newsArray = JSONArray(jsonString)
         var i = 0
-        var numIterations = newsArray.length()
+        val numIterations = newsArray.length()
         while(i < numIterations){
             val newsObject:JSONObject = newsArray.getJSONObject(i)
             val news = News()
