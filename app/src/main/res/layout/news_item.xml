@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.coderefer.newsboard.MainActivity"
+    tools:context="com.coderefer.newsboard.ui.newslist.MainActivity"
     >
 
     <android.support.v7.widget.CardView

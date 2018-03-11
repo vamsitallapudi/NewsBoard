@@ -1,4 +1,4 @@
-package com.coderefer.newsboard
+package com.coderefer.newsboard.ui.newslist.model
 
 /**
  * Created by vamsitallapudi on 16/01/18.

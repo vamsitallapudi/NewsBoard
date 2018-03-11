@@ -1,24 +1,27 @@
-package com.coderefer.newsboard
+package com.coderefer.newsboard.ui.newslist
 
 import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import com.coderefer.newsboard.R
 import com.coderefer.newsboard.databinding.ActivityMainBinding
+import com.coderefer.newsboard.ui.newslist.model.News
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.InputStream
-class MainActivity : AppCompatActivity() {
 
-    var mBinding: ActivityMainBinding? = null
-    private val TAG : String = "MainActivity"
+private const val TAG : String = "MainActivity"
+
+class MainActivity : AppCompatActivity() {
+    private var mBinding: ActivityMainBinding? = null
     private lateinit var linearLayoutManager:LinearLayoutManager
     private lateinit var mAdapter: ListRecyclerAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mBinding = DataBindingUtil.setContentView(this,R.layout.activity_main)
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         linearLayoutManager = LinearLayoutManager(this)
         val jsonString:String = readJsonFromKotlinFile()
         val newsList : ArrayList<News> = parseJsonStringToNewsList(jsonString)

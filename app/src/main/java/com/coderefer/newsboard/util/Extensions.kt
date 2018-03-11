@@ -1,4 +1,4 @@
-package com.coderefer.newsboard
+package com.coderefer.newsboard.util
 
 import android.support.annotation.LayoutRes
 import android.view.LayoutInflater

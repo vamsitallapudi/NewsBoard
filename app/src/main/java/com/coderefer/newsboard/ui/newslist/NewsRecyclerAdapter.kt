@@ -1,9 +1,12 @@
-package com.coderefer.newsboard
+package com.coderefer.newsboard.ui.newslist
 
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import com.coderefer.newsboard.R
+import com.coderefer.newsboard.ui.newslist.model.News
+import com.coderefer.newsboard.util.inflate
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.news_item.view.*
 
@@ -17,12 +20,12 @@ class ListRecyclerAdapter(private val news: ArrayList<News>): RecyclerView.Adapt
         return news.size
     }
 
-    override fun onBindViewHolder(holder: ListRecyclerAdapter.NewsHolder, position: Int) {
+    override fun onBindViewHolder(holder: NewsHolder, position: Int) {
         val itemNews = news[position]
         holder.bindNews(itemNews)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListRecyclerAdapter.NewsHolder{
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsHolder {
         val inflatedView = parent.inflate(R.layout.news_item)
         return NewsHolder(inflatedView)
     }
