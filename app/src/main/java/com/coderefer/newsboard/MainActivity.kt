@@ -10,6 +10,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.InputStream
+import java.util.*
+
 class MainActivity : AppCompatActivity() {
 
     var mBinding: ActivityMainBinding? = null
@@ -60,14 +62,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun readJsonFromKotlinFile() :String{
-        try {
+        return try {
             val inputStream:InputStream = assets.open("news_data_file.json")
             val inputString = inputStream.bufferedReader().use{it.readText()}
             Log.d(TAG,inputString)
-            return inputString
+            inputString
         } catch (e:Exception){
             Log.d(TAG, e.toString())
-            return ""
+            ""
         }
     }
 
